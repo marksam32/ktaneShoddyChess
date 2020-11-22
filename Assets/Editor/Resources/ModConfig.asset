@@ -14,7 +14,11 @@ MonoBehaviour:
   id: ShoddyChessModule
   title: Shoddy Chess
   author: Marksam32
-  description: "ok\t\t\t"
+  description: "Chess Judging\u2122\n\r\nCreated and impelemented by: Marksam32\r\nTwitch
+    plays is supported.\r\n\r\nManual:\r\nPDF: https://github.com/marksam32/ktaneShoddyChess/blob/master/Manual/pdfs/Modules/Shoddy%20Chess%20%E2%80%94%20Keep%20Talking%20and%20Nobody%20Explodes%20Module.pdf\nHTML:
+    (soon)\n\r\nModule id: ShoddyChessModule\nGithub: https://github.com/marksam32/ktaneShoddyChess\n\r\nIf
+    you want to report any bugs or typos in the manual or in the module, please contact
+    me on discord: Marksam32#6669"
   version: 1.0
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: 316df69c61339db41bc68d95ce9954c5, type: 3}
