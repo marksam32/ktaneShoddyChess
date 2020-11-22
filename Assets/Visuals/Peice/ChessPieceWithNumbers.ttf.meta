@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 253e3e8a3e1e6414e9b70ca3e961ee16
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Chess
+  fontNames:
+  - Chess
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ad0c994ea75b31f44b590e1c7dda627f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
