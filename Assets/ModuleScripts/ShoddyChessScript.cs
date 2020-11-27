@@ -824,6 +824,7 @@ public partial class ShoddyChessScript : MonoBehaviour
             }
             else
             {
+                Audio.PlaySoundAtTransform(Sounds[2].name, Module.transform);
                 ChangeStageText(i);
             }
 
