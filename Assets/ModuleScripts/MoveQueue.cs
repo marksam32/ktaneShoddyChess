@@ -31,6 +31,7 @@ namespace ShoddyChess
                 {
                     CurrentQueue++;
                 }
+                Queue = Constants._moveQueues[CurrentQueue];
             }
             else
             {

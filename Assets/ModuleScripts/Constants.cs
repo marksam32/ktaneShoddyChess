@@ -69,7 +69,7 @@ namespace ShoddyChess
                 PieceIdentifier.P7, PieceIdentifier.P3, PieceIdentifier.B2, PieceIdentifier.P2, PieceIdentifier.P4,
                 PieceIdentifier.K, PieceIdentifier.R2, PieceIdentifier.P8, PieceIdentifier.R1, PieceIdentifier.B1,
                 PieceIdentifier.Q, PieceIdentifier.N1, PieceIdentifier.N2, PieceIdentifier.P5, PieceIdentifier.P6,
-                PieceIdentifier.B1
+                PieceIdentifier.P1
             },
             new List<PieceIdentifier>
             {

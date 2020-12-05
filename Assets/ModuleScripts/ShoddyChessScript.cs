@@ -568,7 +568,7 @@ public partial class ShoddyChessScript : MonoBehaviour
         }
         else
         {
-            LogMessage("Stage {0}:", _stage);
+            LogMessage("----------Stage {0}:----------", _stage);
             Audio.PlaySoundAtTransform(Sounds[2].name, Module.transform);
             ChangeStageText(_stage);
 
