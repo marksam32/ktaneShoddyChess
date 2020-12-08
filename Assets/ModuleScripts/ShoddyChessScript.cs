@@ -396,13 +396,13 @@ public partial class ShoddyChessScript : MonoBehaviour
                 if (finalBoard[y, x] == null || input[y, x] == null)
                 {
                     LogMessage(
-                        "Error found at {0}, an empty square was found on one grid but not on the other!",ShoddyChessHelper.GetCoordinate(y,x));
+                        "Error found at {0}, an empty square was found on one grid but not on the other. Strike!",ShoddyChessHelper.GetCoordinate(y,x));
                     return false;
                 }
 
                 if ((finalBoard[y, x].Id != input[y, x].Id) || (finalBoard[y, x].Color != input[y, x].Color))
                 {
-                    LogMessage("Error found at {0}, input was {1}, when I expected {2}!", ShoddyChessHelper.GetCoordinate(y,x), input[y, x].ToString(),
+                    LogMessage("Error found at {0}, input was {1}, when I expected {2}. Strike!", ShoddyChessHelper.GetCoordinate(y,x), input[y, x].ToString(),
                         finalBoard[y, x].ToString());
                     return false;
                 }
@@ -443,9 +443,6 @@ public partial class ShoddyChessScript : MonoBehaviour
                 }
 
                 Module.HandleStrike();
-                LogMessage("The submitted board does not match the final board:");
-                LogBoard(_chessBoard);
-                LogMessage("Strike!");
                 _showStagesCoroutine = StartCoroutine(ShowStages());
                 return;
             }
@@ -745,7 +742,7 @@ public partial class ShoddyChessScript : MonoBehaviour
     private void LogBoard(object boardItems)
     {
         var sb = new StringBuilder();
-        sb.AppendLine();
+        sb.AppendLine("Board:");
         if (boardItems.GetType() == typeof(BoardItem[,]))
         {
             var items = boardItems as BoardItem[,];
