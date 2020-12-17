@@ -528,7 +528,7 @@ public partial class ShoddyChessScript : MonoBehaviour
 
     private void GenerateStage()
     {
-        if (_whiteKingDead || _blackKingDead)
+        if ((_whiteKingDead || _blackKingDead) && !_isSolved)
         {
             if (_solvable)
             {

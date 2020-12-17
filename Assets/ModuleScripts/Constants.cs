@@ -47,7 +47,7 @@ namespace ShoddyChess
             {
                 PieceIdentifier.B1, PieceIdentifier.P7, PieceIdentifier.K, PieceIdentifier.P4, PieceIdentifier.B2,
                 PieceIdentifier.P2, PieceIdentifier.P8, PieceIdentifier.N2, PieceIdentifier.P6, PieceIdentifier.P5,
-                PieceIdentifier.R1, PieceIdentifier.P3, PieceIdentifier.N1, PieceIdentifier.R2, PieceIdentifier.B1,
+                PieceIdentifier.R1, PieceIdentifier.P3, PieceIdentifier.N1, PieceIdentifier.R2, PieceIdentifier.P1,
                 PieceIdentifier.Q
             },
             new List<PieceIdentifier>

@@ -10,7 +10,7 @@ public partial class ShoddyChessScript
         "Place a piece(s) in a specific location using !{0} place wq1 a2 a3 a4 wb1 b2 wp8 e5, etc. Clear the board using !{0} clear all. Or clear a specific coordinate using !{0} clear a4 b2. (Queen = q;Knight = n;Bishop = b;Rook = r;Pawn = p) Example: BK1 would place a black king, WP3 would place a white pawn number 3. Use !{0} button, to press the !!! button. Submit your answer using !{0} submit. NOTE: When placing a queen, you must put a number after the WQ or BQ, for example WQ1 or BQ4.";
 #pragma warning restore 414
 
-    public IEnumerator ProcessTwitchCommand(string command)
+    private IEnumerator ProcessTwitchCommand(string command)
     {
         command = command.ToLowerInvariant().Trim();
 
@@ -150,11 +150,11 @@ public partial class ShoddyChessScript
                         yield return new WaitForSeconds(.1f);
                     }
 
-                    do
+                    while (CurrentItem.Id != piece.Id)
                     {
                         PieceSwitcherButtons[1].OnInteract();
                         yield return new WaitForSeconds(.01f);
-                    } while (CurrentItem.Id != piece.Id);
+                    } 
                 }
             }
         }
@@ -166,5 +166,13 @@ public partial class ShoddyChessScript
                 InformationButton.OnInteract();
             }
         }
+    }
+
+    private IEnumerator TwitchHandleForcedSolve()
+    {
+        _isSolved = true;
+        Module.HandlePass();
+        LogMessage("Force solve requested by twitch plays.");
+        yield break;
     }
 }
