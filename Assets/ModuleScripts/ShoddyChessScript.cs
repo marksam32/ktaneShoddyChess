@@ -716,7 +716,9 @@ public partial class ShoddyChessScript : MonoBehaviour
             }
         }
 
-        return possibleMoves.PickRandom();
+        var movesThatKill = possibleMoves.Where(x => board[x.To.Item1, x.To.Item2] != null).ToList();
+
+        return movesThatKill.Any() ? movesThatKill.PickRandom() : possibleMoves.PickRandom();
     }
     
 
