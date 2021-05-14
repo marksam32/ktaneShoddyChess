@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ShoddyChess;
@@ -62,6 +63,10 @@ public partial class ShoddyChessScript
 
                         if (_inputtedBoard[y, x].Id == PieceIdentifier.K)
                         {
+                            if (CheckAnswer(_chessBoard, _inputtedBoard))
+                            {
+                                yield return string.Format("awardpointsonsolve {0}", Math.Floor(_scoreStage * 1.5));
+                            }
                             Pieces[ShoddyChessHelper.GetIndexFromCoordinate(new Pair<int, int>(y, x))]
                                 .GetComponentInParent<KMSelectable>().OnInteract();
                             yield break;
@@ -168,11 +173,10 @@ public partial class ShoddyChessScript
         }
     }
 
-    private IEnumerator TwitchHandleForcedSolve()
+    private void TwitchHandleForcedSolve()
     {
         _isSolved = true;
         Module.HandlePass();
         LogMessage("Force solve requested by twitch plays.");
-        yield break;
     }
 }

@@ -47,6 +47,7 @@ public partial class ShoddyChessScript : MonoBehaviour
     private int _moduleId;
 
     private int _stage;
+    private int _scoreStage;
 
     private string[] _ignored;
 
@@ -851,7 +852,9 @@ public partial class ShoddyChessScript : MonoBehaviour
             {
                 if (_stage < Info.GetSolvedModuleNames().Count(x => !_ignored.Contains(x)))
                 {
-                    ++_stage;
+                    if (!(_whiteKingDead || _blackKingDead))
+                        _scoreStage++;
+                    _stage++;
                     GenerateStage();
                 }
             }
