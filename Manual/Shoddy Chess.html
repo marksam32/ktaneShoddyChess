@@ -1,13 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Shoddy Chess — Keep Talking and Nobody Explodes Module</title>
     <meta name="viewport" content="initial-scale=1">
+    <title>Shoddy Chess — Keep Talking and Nobody Explodes Module</title>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/font.css">
     <script src="js/ktane-utils.js"></script>
 
 </head>
@@ -34,7 +33,7 @@
                 <p class="flavour-text">Chess Judging™</p>
                 <ul>
                     <li>
-                        At first, this module will show a number, and a button labled !!!.
+                        At first, this module will show a number, and a button labelled !!!.
                     </li>
                     <li>
                         After a module is solved, the number will change to a coordinate cooresponding to a location on an 8x8 chess board.
@@ -93,55 +92,14 @@
             </div>
             <div class="page-content">
                 <h3>
-                    Section 1: The move queue
+                    The move queue
                 </h3>
                 <ul>
                     <li>
-                        Take the number shown on the module, count that many places in reading order on an 8x8 chess board starting with 0 in the top-left.
+                        Take the initial number shown on the module, the left number corresponds to the white move queue and the right number corresponds to the black move queue.
                     </li>
                     <li>
-                        Take the coordinate of the square you ended up on and add the alphanumeric position of the column to the number of the row.
-                    </li>
-                    <li>
-                        If that number is even white has the first move, otherwise black.
-                    </li>
-                    <li>
-                        Continue to alternate between black and white playing for every stage.
-                    </li>
-                    <li>
-                        If the black and white move queues ends up being the same, add 1 to the black move queue and modulo 10.
-                    </li>
-                        
-                </ul>
-                <h4>
-                    White starting move queue:
-                </h4>
-                <ul>
-                    <li>
-                        Take the number obtained above and add the product of the amount of batteries on the bomb and 7.
-                    </li>
-                    <li>
-                        If there is a “Chess” or a “Lousy chess” module on the bomb. Multiply by 2.
-                    </li>
-                    <li>
-                        Take that number modulo 10.
-                    </li>
-                    <li>
-                        Use that number to find the white move queue in the corresponding table below.
-                    </li>
-                </ul>
-                <h4>
-                    Black starting move queue:
-                </h4>
-                <ul>
-                    <li>
-                        Take the number obtained above and add each individual base-36 character in the serial number.
-                    </li>
-                    <li>
-                        Take that number modulo 10.
-                    </li>
-                    <li>
-                        Use that number to find the black move queue in the corresponding table below.
+                        <strong>However,</strong> if there is a "Chess" or a "Lousy Chess" module on the bomb, swap the two move queues.
                     </li>
                 </ul>
                 <p>

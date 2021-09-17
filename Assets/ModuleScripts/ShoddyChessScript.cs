@@ -481,50 +481,23 @@ public partial class ShoddyChessScript : MonoBehaviour
 
     private void ChangeStageText(int stage)
     {
-        var text = "----" + stage.ToString();
+        var text = string.Format("----{0}", stage.ToString());
         StageText.text = text.Substring(text.Length - 4);
     }
 
     private void GenerateInitialStage()
     {
-        var displayedNumber = rnd.Range(0, 64);
-        _stages.Add(displayedNumber.ToString("D2"));
-        InformationText.text = displayedNumber.ToString("D2");
-
-        var coordinates = ShoddyChessHelper.GetCoordinateFromIndex(displayedNumber);
-        var c = ShoddyChessHelper.GetCoordinate(coordinates.Item1, coordinates.Item2);
-        var startingNumber = (char.ToUpper(c[0]) - 64) + int.Parse(c[1].ToString());
-
-        _blackPlaying = startingNumber % 2 != 0;
-
-        var number = startingNumber;
-
-        number += (Info.GetBatteryCount() * 7);
+        //White, Black
+        var moveQueues = new Pair<int, int>(rnd.Range(0, 10), rnd.Range(0, 10));
+        _stages.Add(moveQueues.ToString());
+        InformationText.text = moveQueues.ToString();
         if (Info.GetModuleIDs().Any(x => x.EqualsAny("ChessModule", "lousyChess")))
-        {
-            number *= 2;
-        }
+            moveQueues = new Pair<int, int>(moveQueues.Item2, moveQueues.Item1);
 
-        number %= 10;
-
-        var whiteMoveQueue = number;
-
-        number = startingNumber;
-        Info.GetSerialNumber().ForEach(x => number += Constants._base36string.IndexOf(x));
-
-        number %= 10;
-        var blackMoveQueue = number;
-
-        if (whiteMoveQueue == blackMoveQueue)
-        {
-            blackMoveQueue++;
-            blackMoveQueue %= 10;
-        }
-        
-        _whiteMoveQueue = new MoveQueue(whiteMoveQueue);
-        LogMessage("The white movequeue is {0}", whiteMoveQueue);
-        _blackMoveQueue = new MoveQueue(blackMoveQueue);
-        LogMessage("The black movequeue is {0}", blackMoveQueue);
+        _whiteMoveQueue = new MoveQueue(moveQueues.Item1);
+        LogMessage("The white movequeue is {0}", moveQueues.Item1);
+        _blackMoveQueue = new MoveQueue(moveQueues.Item2);
+        LogMessage("The black movequeue is {0}", moveQueues.Item2);
     }
 
     private void GenerateStage()

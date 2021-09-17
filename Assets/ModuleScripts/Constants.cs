@@ -130,8 +130,6 @@ namespace ShoddyChess
                 }
             };
         }
-        
-        public const string _base36string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         private static ChessPiece CreatePiece(PieceColor color, PieceIdentifier id, PieceType type)
         {
